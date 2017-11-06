@@ -44,14 +44,11 @@ module GoodData
 
             to_projects.peach do |to|
               pid = to[:pid]
-              client_id = to[:client_id]
 
               to_project = client.projects(pid) || fail("Invalid 'to' project specified - '#{pid}'")
 
               params.gdc_logger.info "Transferring processes, from project: '#{from.title}', PID: '#{from.pid}', to project: '#{to_project.title}', PID: '#{to_project.pid}'"
               res = GoodData::Project.transfer_processes(from, to_project, ads_output_stage_uri: info.ads_output_stage_uri)
-
-              to_project.add.output_stage.client_id = client_id if client_id && to_project.add.output_stage
 
               results << res
             end
