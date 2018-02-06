@@ -98,6 +98,50 @@ describe GoodData::LCM2::SynchronizeUsers do
         end
         subject.class.call(params)
       end
+
+      context 'when using mode sync_multiple_projects_based_on_custom_id' do
+        let(:client_id) { '123456789' }
+        let(:second_client_id) { '34567688' }
+        let(:params) do
+          params = {
+            GDC_GD_CLIENT: client,
+            input_source: 'foo',
+            domain: 'bar',
+            gdc_logger: logger,
+            sync_mode: 'sync_multiple_projects_based_on_custom_id'
+          }
+          GoodData::LCM2.convert_to_smart_hash(params)
+        end
+
+        context 'when syncing multiple projects' do
+          let(:first_project) { double('first-project') }
+          let(:second_project) { double('second-project') }
+          let(:first_client) { double('first-client') }
+          let(:second_client) { double('second-client') }
+          let(:first_pid) { 'pid123' }
+          let(:second_pid) { 'pid456' }
+
+          before do
+            allow(File).to receive(:open).and_return("client_id\n#{client_id}\n#{second_client_id}")
+            allow(client).to receive(:projects).with(client_id).and_return(first_project)
+            allow(client).to receive(:projects).with(second_client_id).and_return(second_project)
+            allow(first_client).to receive(:project).and_return(first_project)
+            allow(second_client).to receive(:project).and_return(second_project)
+            allow(domain).to receive(:clients).with(client_id, nil).and_return(first_client)
+            allow(domain).to receive(:clients).with(second_client_id, nil).and_return(second_client)
+            allow(first_project).to receive(:pid).and_return(first_pid)
+            allow(second_project).to receive(:pid).and_return(second_pid)
+            allow(first_project).to receive(:import_users)
+            allow(second_project).to receive(:import_users)
+          end
+
+          it 'works correctly in parallel' do
+            expect(first_project).to receive(:import_users)
+            expect(second_project).to receive(:import_users)
+            expect { subject.class.call(params) }.to_not raise_exception
+          end
+        end
+      end
     end
 
     context 'when using mode sync_domain_client_workspaces' do

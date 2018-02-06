@@ -152,7 +152,7 @@ module GoodData
                                            do_not_touch_users_that_are_not_mentioned: do_not_touch_users_that_are_not_mentioned,
                                            create_non_existing_user_groups: create_non_existing_user_groups)
                     when 'sync_multiple_projects_based_on_custom_id'
-                      new_users.group_by { |u| u[:pid] }.flat_map do |client_id, users|
+                      new_users.group_by { |u| u[:pid] }.flat_map.pmap do |client_id, users|
                         fail "Client id cannot be empty" if client_id.blank?
                         begin
                           project = domain.clients(client_id, data_product).project
