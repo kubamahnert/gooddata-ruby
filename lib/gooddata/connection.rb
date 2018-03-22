@@ -90,14 +90,21 @@ module GoodData
       file_signed.rewind
       file_final = Tempfile.new('gooddata-sso-final')
 
-      cmd = "gpg --yes --no-tty --trust-model always --armor --output #{file_final.path} --encrypt --recipient security@gooddata.com #{file_signed.path}"
+      recipient = opts[:server] =~ /staging/ ? 'test@gooddata.com' : 'security@gooddata.com'
+      cmd = "gpg --yes --no-tty --trust-model always --armor --output #{file_final.path} --encrypt --recipient #{recipient} #{file_signed.path}"
       res = system(cmd)
       fail 'Unable to encrypt json' unless res
 
       file_final.rewind
       final = file_final.read
 
-      "#{GoodData::Helpers::AuthHelper.read_server}/gdc/account/customerlogin?sessionId=#{CGI.escape(final)}&serverURL=#{CGI.escape(provider)}&targetURL=#{CGI.escape(opts[:url])}"
+      url = opts[:server] + "/gdc/account/customerlogin"
+      params = {
+        targetUrl: opts[:url],
+        ssoProvider: provider,
+        encryptedClaims: final
+      }
+      return url, params
     end
 
     # Connect to GoodData using SSO
@@ -112,15 +119,15 @@ module GoodData
     # @param [String] login Email address used for logging into gooddata
     # @param [String] provider Name of SSO provider
     # @return [GoodData::Rest::Client] Instance of REST client
-    def connect_sso(login, provider)
-      url = sso_url(login, provider)
+    def connect_sso(login, provider, opts)
+      url, params = sso_url(login, provider, server: opts[:server])
 
-      params = {
-        :x_gdc_request => "#{GoodData::Rest::Connection.generate_string}:#{GoodData::Rest::Connection.generate_string}"
-      }
-
-      RestClient.get url, params do |response, _request, _result|
-        Rest::Client.connect_sso(:sst_token => URI.decode(response.cookies['GDCAuthSST']))
+      RestClient.post url, params do |response, _request, _result|
+        opts.merge!(headers: {
+          x_gdc_authsst: response.cookies['GDCAuthSST'],
+          x_gdc_authtt: response.cookies['GDCAuthTT']
+        })
+        return Rest::Client.connect_sso(opts)
       end
     end
   end
