@@ -368,6 +368,8 @@ module GoodData
       ignore_missing_values = options[:ignore_missing_values]
       users_must_exist = options[:users_must_exist] == false ? false : true
       dry_run = options[:dry_run]
+
+      puts "Synchronizing #{user_filters.count} filters in project #{project.pid}"
       project_log_formatter = GoodData::ProjectLogFormatter.new(project)
 
       project_users = project.users
