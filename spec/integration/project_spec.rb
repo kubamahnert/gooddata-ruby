@@ -7,11 +7,12 @@
 require 'pmap'
 require 'gooddata'
 
+require_relative 'shared_contexts_for_deterministic_random_data'
+
 describe GoodData::Project, :vcr, :constraint => 'slow' do
   before(:all) do
     @client = ConnectionHelper.create_default_connection
     @project = @client.create_project(title: ProjectHelper::PROJECT_TITLE, auth_token: ConnectionHelper::GD_PROJECT_TOKEN, environment: ProjectHelper::ENVIRONMENT)
-    roles = @project.roles
     @domain = @client.domain(ConnectionHelper::DEFAULT_DOMAIN)
   end
 
@@ -20,20 +21,18 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
     @client.disconnect
   end
 
-  before(:each) do |example|
-    $example_name = example.description
-  end
+  include_context 'deterministic random string in $example_name'
 
   describe '#add_user' do
     it 'Adding user without domain should fail if it is not in the domain' do
-      user = ProjectHelper.ensure_users(client: @client)
+      user = ProjectHelper.ensure_users(client: @client, caller: $example_name)
       expect do
         @project.add_user(user, 'Admin')
       end.to raise_exception(ArgumentError)
     end
 
     it 'Adding user with domain should be added to a project' do
-      user = ProjectHelper.ensure_users(client: @client)
+      user = ProjectHelper.ensure_users(client: @client, caller: $example_name)
       @domain.create_users([user])
       res = @project.add_user(user, 'Admin', domain: @domain)
       login = GoodData::Helpers.last_uri_part(res['projectUsersUpdateResult']['successful'].first)
@@ -43,13 +42,13 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
 
   describe '#add_users' do
     it 'Adding user without domain should fail if it is not in the project' do
-      users = ProjectHelper.ensure_users(client: @client, amount: 5).map { |u| { user: u, role: 'Admin' } }
+      users = ProjectHelper.ensure_users(client: @client, amount: 5, caller: $example_name).map { |u| { user: u, role: 'Admin' } }
       res = @project.add_users(users)
       expect(res.select { |r| r[:type] == :failed }.count).to eq users.length
     end
 
     it 'Adding users with domain should pass and users should be added to domain' do
-      users = ProjectHelper.ensure_users(client: @client, amount: 5).map { |u| { user: u, role: 'Admin' } }
+      users = ProjectHelper.ensure_users(client: @client, amount: 5, caller: $example_name).map { |u| { user: u, role: 'Admin' } }
       @domain.create_users(users.map { |u| u[:user] })
       res = @project.add_users(users, domain: @domain)
       links = res.select { |r| r[:type] == :successful }.map { |i| GoodData::Helpers.last_uri_part(i[:user]) }
@@ -59,7 +58,7 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
 
   describe '#import_users' do
     it 'should add user which login contains a part of whitelists' do
-      user = ProjectHelper.ensure_users(client: @client)
+      user = ProjectHelper.ensure_users(client: @client, caller: $example_name)
       @domain.create_users([user])
       @project.import_users([user], domain: @domain, whitelists: ['rubydev+admin@gooddata.com'])
       expect(@domain.members?([user])).to be_truthy
@@ -68,7 +67,7 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
     end
 
     it "Updates user's name and surname and removes the users" do
-      other_user, *users = ProjectHelper.ensure_users(client: @client, amount: 3)
+      other_user, *users = ProjectHelper.ensure_users(client: @client, amount: 3, caller: $example_name)
       @domain.create_users(users)
       @project.import_users(users, domain: @domain, whitelists: [/admin@gooddata.com/])
       expect(@domain.members?(users)).to be_truthy
@@ -121,7 +120,7 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
     end
 
     it "Updates user's role in a project" do
-      users = ProjectHelper.ensure_users(client: @client, amount: 5).map &:to_hash
+      users = ProjectHelper.ensure_users(client: @client, amount: 5, caller: $example_name).map &:to_hash
       @domain.create_users(users, domain: @domain)
       @project.import_users(users, domain: @domain, whitelists: [/admin@gooddata.com/])
 
@@ -139,7 +138,7 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
       uh = u.to_hash
       uh[:role] = 'editor'
 
-      users = ProjectHelper.ensure_users(client: @client, amount: 5).map(&:to_hash) + [uh]
+      users = ProjectHelper.ensure_users(client: @client, amount: 5, caller: $example_name).map(&:to_hash) + [uh]
       @domain.create_users(users, domain: @domain)
       expect(@project.member?(u)).to be_truthy
       expect(u.role.title).to eq 'Admin'
@@ -150,7 +149,7 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
     end
 
     it 'should downcase login' do
-      users = [ProjectHelper.ensure_users(client: @client)]
+      users = [ProjectHelper.ensure_users(client: @client, caller: $example_name)]
       @domain.create_users(users)
       @project.import_users(users, domain: @domain, whitelists: ['rubydev+admin@gooddata.com'])
       expect(@project.members?(users.map(&:to_hash).map { |u| u[:login].downcase! })).to be_truthy
@@ -159,11 +158,13 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
 
   describe '#set_user_roles' do
     it 'Properly updates user roles as needed' do
-      users_to_import = @domain.users.drop(rand(100)).take(5).map { |u| { user: u, role: 'Admin' } }
+      users =  ProjectHelper.ensure_users(client: @client, amount: 5, caller: $example_name)
+      @domain.create_users(users)
+      users_to_import = users.map { |u| { user: u, role: 'admin' } }
       @project.import_users(users_to_import, domain: @domain, whitelists: [/admin@gooddata.com/])
       users_without_owner = @project.users.reject { |u| u.login == ConnectionHelper::DEFAULT_USERNAME }.pselect { |u| u.role.title == 'Admin' }
 
-      user_to_change = users_without_owner.sample
+      user_to_change = users_without_owner.first
       @project.set_user_roles(user_to_change, 'editor')
       expect(user_to_change.role.title).to eq 'Editor'
       @project.set_user_roles(user_to_change, 'admin')
@@ -229,11 +230,11 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
     end
 
     it 'transfers groups from hashes' do
-      users = ProjectHelper.ensure_users(client: @client, amount: 5).map(&:to_hash)
+      users = ProjectHelper.ensure_users(client: @client, amount: 5, caller: $example_name).map(&:to_hash)
       group_names = %w(group_1 group_2)
       groups = group_names.map { |g| @project.create_group(name: g) }
       users_with_groups = users.map do |u|
-        u[:user_group] = groups.take(rand(2) + 1).map(&:name)
+        u[:user_group] = groups.take(3).map(&:name)
         u
       end
       @domain.create_users(users_with_groups, domain: @domain)
@@ -294,9 +295,10 @@ describe GoodData::Project, :vcr, :constraint => 'slow' do
   end
 
   describe 'enabling and disabling users' do
-    before(:each) do |example|
-      $example_name = example.description
-      user = ProjectHelper.ensure_users(client: @client)
+    include_context 'deterministic random string in $example_name'
+
+    before(:each) do
+      user = ProjectHelper.ensure_users(client: @client, caller: $example_name)
       @domain.create_users([user])
       @project.import_users([user], domain: @domain, whitelists: ['rubydev+admin@gooddata.com'])
     end

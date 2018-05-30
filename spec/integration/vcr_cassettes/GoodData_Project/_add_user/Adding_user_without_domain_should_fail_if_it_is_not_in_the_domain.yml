@@ -1,0 +1,560 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:SBV2FHNF19tLhTfUZco98Q
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:18 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=100
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:SBV2FHNF19tLhTfUZco98Q:2QkS02Cf51Zoeynl
+      Vary:
+      - origin
+      X-Gdc-Request-Time:
+      - '64'
+      Transfer-Encoding:
+      - chunked
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRoles":{"roles":["/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/2","/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/7","/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/5","/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/3","/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/9","/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/8","/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/1","/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/4"],"links":{"project":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:18 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:NpvbYYeHM_5vOxcedtuYxA
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:18 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=87
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:NpvbYYeHM_5vOxcedtuYxA:RIinkdJx6BSAvjTi
+      X-Gdc-Request-Time:
+      - '30'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"1","canCreateProjectDashboard":"1","canExportDashboard":"1","canManageComment":"1","canExecute":"1","canInitData":"1","canManageIntegration":"1","canCreateExecutionContext":"1","canManageFolder":"1","canInviteUserToProject":"1","canCreateTableDataLoad":"1","canCreateDomain":"1","canSeeOtherUserDetails":"1","canManageACL":"1","canManageAnalyticalDashboard":"1","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"1","canManageDomain":"1","canManageAttributeLabel":"1","canManageReport":"1","canExportReport":"1","canCreateColumn":"1","canManageDataSet":"1","canSetUserVariables":"1","canCreateAttributeGroup":"1","canValidateProject":"1","canSetStyle":"1","canMaintainProject":"1","canCreateETLFile":"1","canCreateScheduledMail":"1","canSuspendUserFromProject":"1","canManageIsProduction":"1","canMaintainUserFilterRelation":"1","canManageAttribute":"1","canManageReportDefinition":"1","canManageTranslations":"1","canMaintainUserFilter":"1","canCreateReport":"1","canSetLocale":"1","canEnrichData":"1","canUploadNonProductionCSV":"1","canManageETLFile":"1","canCreateComment":"1","canCreateDataSet":"1","canManageExecutionContext":"1","canCreateTable":"1","canManageTableDataLoad":"1","canRefreshData":"1","canCreateMetric":"1","canManageFilterSettings":"1","canManageProjectDashboard":"1","canManageProject":"1","canManagePrompt":"1","canAccessWorkbench":"1","canCreateAttributeLabel":"1","canCreateVisualizationClass":"1","canManageColumn":"1","canCreatePrompt":"1","canManagePublicAccessCode":"0","canListUsersInProject":"1","canManageAttributeGroup":"1","canManageMetric":"1","canManageHelp":"1","canSetProjectVariables":"1","canManageTable":"1","canCreateVisualization":"1","canCreateFolder":"1","canManageFact":"1","canManageScheduledMail":"1","canListInvitationsInProject":"1","canCreateFilterSettings":"1","canExecuteRaw":"1","canSeePublicAccessCode":"0","canCreateReportDefinition":"1","canManageVisualization":"1","canCreateFact":"1","canCreateAttribute":"1","canAssignUserWithRole":"1","canCreateAnalyticalDashboard":"1"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/2/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"adminRole","summary":"project master","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Admin","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:18 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/7
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:ssQcAbFl3h1wrbQxbTfECg
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:19 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=100
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:ssQcAbFl3h1wrbQxbTfECg:CrPr3clsDNpKbtil
+      X-Gdc-Request-Time:
+      - '34'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"1","canCreateProjectDashboard":"0","canExportDashboard":"1","canManageComment":"0","canExecute":"0","canInitData":"1","canManageIntegration":"1","canCreateExecutionContext":"0","canManageFolder":"0","canInviteUserToProject":"0","canCreateTableDataLoad":"0","canCreateDomain":"0","canSeeOtherUserDetails":"0","canManageACL":"0","canManageAnalyticalDashboard":"0","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"0","canManageDomain":"0","canManageAttributeLabel":"1","canManageReport":"0","canExportReport":"1","canCreateColumn":"0","canManageDataSet":"1","canSetUserVariables":"0","canCreateAttributeGroup":"0","canValidateProject":"0","canSetStyle":"0","canMaintainProject":"0","canCreateETLFile":"0","canCreateScheduledMail":"0","canSuspendUserFromProject":"0","canManageIsProduction":"0","canMaintainUserFilterRelation":"0","canManageAttribute":"1","canManageReportDefinition":"0","canManageTranslations":"0","canMaintainUserFilter":"0","canCreateReport":"0","canSetLocale":"0","canEnrichData":"0","canUploadNonProductionCSV":"0","canManageETLFile":"1","canCreateComment":"0","canCreateDataSet":"0","canManageExecutionContext":"0","canCreateTable":"0","canManageTableDataLoad":"1","canRefreshData":"1","canCreateMetric":"0","canManageFilterSettings":"0","canManageProjectDashboard":"0","canManageProject":"0","canManagePrompt":"0","canAccessWorkbench":"0","canCreateAttributeLabel":"0","canCreateVisualizationClass":"0","canManageColumn":"1","canCreatePrompt":"0","canManagePublicAccessCode":"0","canListUsersInProject":"0","canManageAttributeGroup":"1","canManageMetric":"1","canManageHelp":"0","canSetProjectVariables":"0","canManageTable":"1","canCreateVisualization":"0","canCreateFolder":"0","canManageFact":"1","canManageScheduledMail":"0","canListInvitationsInProject":"0","canCreateFilterSettings":"0","canExecuteRaw":"0","canSeePublicAccessCode":"0","canCreateReportDefinition":"0","canManageVisualization":"0","canCreateFact":"0","canCreateAttribute":"0","canAssignUserWithRole":"0","canCreateAnalyticalDashboard":"0"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/7/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"connectorsSystemRole","summary":"the connectors system
+        user","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Connectors System User","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:19 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:-9BokGeO8oMBYkiMn-oXDQ
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:19 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=99
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:-9BokGeO8oMBYkiMn-oXDQ:EkOh0V5382CWDBxz
+      X-Gdc-Request-Time:
+      - '28'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"1","canCreateProjectDashboard":"1","canExportDashboard":"1","canManageComment":"1","canExecute":"1","canInitData":"0","canManageIntegration":"0","canCreateExecutionContext":"1","canManageFolder":"1","canInviteUserToProject":"0","canCreateTableDataLoad":"0","canCreateDomain":"1","canSeeOtherUserDetails":"1","canManageACL":"1","canManageAnalyticalDashboard":"1","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"0","canManageDomain":"1","canManageAttributeLabel":"0","canManageReport":"1","canExportReport":"1","canCreateColumn":"0","canManageDataSet":"0","canSetUserVariables":"0","canCreateAttributeGroup":"0","canValidateProject":"0","canSetStyle":"0","canMaintainProject":"0","canCreateETLFile":"1","canCreateScheduledMail":"1","canSuspendUserFromProject":"0","canManageIsProduction":"0","canMaintainUserFilterRelation":"0","canManageAttribute":"0","canManageReportDefinition":"1","canManageTranslations":"0","canMaintainUserFilter":"0","canCreateReport":"1","canSetLocale":"0","canEnrichData":"1","canUploadNonProductionCSV":"1","canManageETLFile":"1","canCreateComment":"1","canCreateDataSet":"0","canManageExecutionContext":"1","canCreateTable":"0","canManageTableDataLoad":"0","canRefreshData":"1","canCreateMetric":"1","canManageFilterSettings":"1","canManageProjectDashboard":"1","canManageProject":"0","canManagePrompt":"0","canAccessWorkbench":"1","canCreateAttributeLabel":"0","canCreateVisualizationClass":"0","canManageColumn":"0","canCreatePrompt":"0","canManagePublicAccessCode":"0","canListUsersInProject":"1","canManageAttributeGroup":"0","canManageMetric":"1","canManageHelp":"0","canSetProjectVariables":"0","canManageTable":"0","canCreateVisualization":"1","canCreateFolder":"1","canManageFact":"0","canManageScheduledMail":"1","canListInvitationsInProject":"0","canCreateFilterSettings":"1","canExecuteRaw":"1","canSeePublicAccessCode":"0","canCreateReportDefinition":"1","canManageVisualization":"1","canCreateFact":"0","canCreateAttribute":"0","canAssignUserWithRole":"0","canCreateAnalyticalDashboard":"1"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/5/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"editorRole","summary":"invited user","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Editor","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:19 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:1t0SF_KsPTOOLnLQACRS-Q
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:20 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=98
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:1t0SF_KsPTOOLnLQACRS-Q:6ChvZqWQXYp09M5C
+      X-Gdc-Request-Time:
+      - '29'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"0","canCreateProjectDashboard":"0","canExportDashboard":"1","canManageComment":"0","canExecute":"1","canInitData":"0","canManageIntegration":"0","canCreateExecutionContext":"1","canManageFolder":"0","canInviteUserToProject":"0","canCreateTableDataLoad":"0","canCreateDomain":"0","canSeeOtherUserDetails":"0","canManageACL":"0","canManageAnalyticalDashboard":"0","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"0","canManageDomain":"0","canManageAttributeLabel":"0","canManageReport":"0","canExportReport":"1","canCreateColumn":"0","canManageDataSet":"0","canSetUserVariables":"0","canCreateAttributeGroup":"0","canValidateProject":"0","canSetStyle":"0","canMaintainProject":"0","canCreateETLFile":"0","canCreateScheduledMail":"1","canSuspendUserFromProject":"0","canManageIsProduction":"0","canMaintainUserFilterRelation":"0","canManageAttribute":"0","canManageReportDefinition":"0","canManageTranslations":"0","canMaintainUserFilter":"0","canCreateReport":"0","canSetLocale":"0","canEnrichData":"0","canUploadNonProductionCSV":"0","canManageETLFile":"0","canCreateComment":"0","canCreateDataSet":"0","canManageExecutionContext":"1","canCreateTable":"0","canManageTableDataLoad":"0","canRefreshData":"0","canCreateMetric":"0","canManageFilterSettings":"0","canManageProjectDashboard":"0","canManageProject":"0","canManagePrompt":"0","canAccessWorkbench":"0","canCreateAttributeLabel":"0","canCreateVisualizationClass":"0","canManageColumn":"0","canCreatePrompt":"0","canManagePublicAccessCode":"0","canListUsersInProject":"0","canManageAttributeGroup":"0","canManageMetric":"0","canManageHelp":"0","canSetProjectVariables":"0","canManageTable":"0","canCreateVisualization":"0","canCreateFolder":"0","canManageFact":"0","canManageScheduledMail":"0","canListInvitationsInProject":"0","canCreateFilterSettings":"1","canExecuteRaw":"1","canSeePublicAccessCode":"0","canCreateReportDefinition":"1","canManageVisualization":"0","canCreateFact":"0","canCreateAttribute":"0","canAssignUserWithRole":"0","canCreateAnalyticalDashboard":"0"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/3/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"dashboardOnlyRole","summary":"dashboard only","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Embedded Dashboard Only","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:20 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:rUi55EQ1nz6lsCyt7vBjWw
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:20 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=100
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:rUi55EQ1nz6lsCyt7vBjWw:29Bcr63R8TmuBzes
+      X-Gdc-Request-Time:
+      - '29'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"1","canCreateProjectDashboard":"0","canExportDashboard":"1","canManageComment":"0","canExecute":"1","canInitData":"0","canManageIntegration":"0","canCreateExecutionContext":"1","canManageFolder":"0","canInviteUserToProject":"0","canCreateTableDataLoad":"0","canCreateDomain":"0","canSeeOtherUserDetails":"0","canManageACL":"0","canManageAnalyticalDashboard":"1","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"0","canManageDomain":"0","canManageAttributeLabel":"0","canManageReport":"0","canExportReport":"1","canCreateColumn":"0","canManageDataSet":"0","canSetUserVariables":"0","canCreateAttributeGroup":"0","canValidateProject":"0","canSetStyle":"0","canMaintainProject":"0","canCreateETLFile":"0","canCreateScheduledMail":"1","canSuspendUserFromProject":"0","canManageIsProduction":"0","canMaintainUserFilterRelation":"0","canManageAttribute":"0","canManageReportDefinition":"0","canManageTranslations":"0","canMaintainUserFilter":"0","canCreateReport":"0","canSetLocale":"0","canEnrichData":"0","canUploadNonProductionCSV":"0","canManageETLFile":"0","canCreateComment":"0","canCreateDataSet":"0","canManageExecutionContext":"1","canCreateTable":"0","canManageTableDataLoad":"0","canRefreshData":"0","canCreateMetric":"0","canManageFilterSettings":"1","canManageProjectDashboard":"0","canManageProject":"0","canManagePrompt":"0","canAccessWorkbench":"0","canCreateAttributeLabel":"0","canCreateVisualizationClass":"0","canManageColumn":"0","canCreatePrompt":"0","canManagePublicAccessCode":"0","canListUsersInProject":"0","canManageAttributeGroup":"0","canManageMetric":"0","canManageHelp":"0","canSetProjectVariables":"0","canManageTable":"0","canCreateVisualization":"1","canCreateFolder":"0","canManageFact":"0","canManageScheduledMail":"0","canListInvitationsInProject":"0","canCreateFilterSettings":"1","canExecuteRaw":"1","canSeePublicAccessCode":"0","canCreateReportDefinition":"1","canManageVisualization":"1","canCreateFact":"0","canCreateAttribute":"0","canAssignUserWithRole":"0","canCreateAnalyticalDashboard":"1"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/9/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"explorerOnlyRole","summary":"explorer only","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Embedded Only Explorer","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:20 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/8
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:4ni61VrJ1uCvyOeDtnc5mQ
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:21 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=95
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:4ni61VrJ1uCvyOeDtnc5mQ:242iMGOcknMPljtk
+      X-Gdc-Request-Time:
+      - '30'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"1","canCreateProjectDashboard":"0","canExportDashboard":"1","canManageComment":"0","canExecute":"1","canInitData":"0","canManageIntegration":"0","canCreateExecutionContext":"1","canManageFolder":"0","canInviteUserToProject":"0","canCreateTableDataLoad":"0","canCreateDomain":"0","canSeeOtherUserDetails":"0","canManageACL":"0","canManageAnalyticalDashboard":"1","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"0","canManageDomain":"0","canManageAttributeLabel":"0","canManageReport":"0","canExportReport":"1","canCreateColumn":"0","canManageDataSet":"0","canSetUserVariables":"0","canCreateAttributeGroup":"0","canValidateProject":"0","canSetStyle":"0","canMaintainProject":"0","canCreateETLFile":"0","canCreateScheduledMail":"1","canSuspendUserFromProject":"0","canManageIsProduction":"0","canMaintainUserFilterRelation":"0","canManageAttribute":"0","canManageReportDefinition":"0","canManageTranslations":"0","canMaintainUserFilter":"0","canCreateReport":"0","canSetLocale":"0","canEnrichData":"0","canUploadNonProductionCSV":"1","canManageETLFile":"0","canCreateComment":"0","canCreateDataSet":"0","canManageExecutionContext":"1","canCreateTable":"0","canManageTableDataLoad":"0","canRefreshData":"0","canCreateMetric":"0","canManageFilterSettings":"1","canManageProjectDashboard":"0","canManageProject":"0","canManagePrompt":"0","canAccessWorkbench":"1","canCreateAttributeLabel":"0","canCreateVisualizationClass":"0","canManageColumn":"0","canCreatePrompt":"0","canManagePublicAccessCode":"0","canListUsersInProject":"0","canManageAttributeGroup":"0","canManageMetric":"0","canManageHelp":"0","canSetProjectVariables":"0","canManageTable":"0","canCreateVisualization":"1","canCreateFolder":"0","canManageFact":"0","canManageScheduledMail":"0","canListInvitationsInProject":"0","canCreateFilterSettings":"1","canExecuteRaw":"1","canSeePublicAccessCode":"0","canCreateReportDefinition":"1","canManageVisualization":"1","canCreateFact":"0","canCreateAttribute":"0","canAssignUserWithRole":"0","canCreateAnalyticalDashboard":"1"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/8/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"explorerRole","summary":"explorer","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Explorer","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:21 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:XyokFahVOVEQY4upynA3kg
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:21 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=96
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:XyokFahVOVEQY4upynA3kg:yeSuLdN9eQxJuGGX
+      X-Gdc-Request-Time:
+      - '33'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"1","canCreateProjectDashboard":"1","canExportDashboard":"1","canManageComment":"1","canExecute":"1","canInitData":"1","canManageIntegration":"1","canCreateExecutionContext":"1","canManageFolder":"1","canInviteUserToProject":"0","canCreateTableDataLoad":"1","canCreateDomain":"1","canSeeOtherUserDetails":"1","canManageACL":"0","canManageAnalyticalDashboard":"1","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"1","canManageDomain":"1","canManageAttributeLabel":"1","canManageReport":"1","canExportReport":"1","canCreateColumn":"1","canManageDataSet":"1","canSetUserVariables":"1","canCreateAttributeGroup":"1","canValidateProject":"1","canSetStyle":"1","canMaintainProject":"0","canCreateETLFile":"1","canCreateScheduledMail":"0","canSuspendUserFromProject":"1","canManageIsProduction":"1","canMaintainUserFilterRelation":"0","canManageAttribute":"1","canManageReportDefinition":"1","canManageTranslations":"1","canMaintainUserFilter":"0","canCreateReport":"1","canSetLocale":"1","canEnrichData":"1","canUploadNonProductionCSV":"1","canManageETLFile":"1","canCreateComment":"1","canCreateDataSet":"1","canManageExecutionContext":"1","canCreateTable":"1","canManageTableDataLoad":"1","canRefreshData":"1","canCreateMetric":"1","canManageFilterSettings":"1","canManageProjectDashboard":"1","canManageProject":"1","canManagePrompt":"1","canAccessWorkbench":"1","canCreateAttributeLabel":"1","canCreateVisualizationClass":"1","canManageColumn":"1","canCreatePrompt":"1","canManagePublicAccessCode":"0","canListUsersInProject":"1","canManageAttributeGroup":"1","canManageMetric":"1","canManageHelp":"1","canSetProjectVariables":"1","canManageTable":"1","canCreateVisualization":"1","canCreateFolder":"1","canManageFact":"1","canManageScheduledMail":"0","canListInvitationsInProject":"1","canCreateFilterSettings":"1","canExecuteRaw":"1","canSeePublicAccessCode":"0","canCreateReportDefinition":"1","canManageVisualization":"1","canCreateFact":"1","canCreateAttribute":"1","canAssignUserWithRole":"0","canCreateAnalyticalDashboard":"1"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/1/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"unverifiedAdminRole","summary":"project unverified
+        admin","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Unverified Admin","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:21 GMT
+- request:
+    method: get
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:asj0ERuwMo02VwPuTqlyLw
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 31 May 2018 09:33:22 GMT
+      Server:
+      - GoodData WebApp
+      Keep-Alive:
+      - timeout=5, max=79
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - origin
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:asj0ERuwMo02VwPuTqlyLw:AayGZB6sTNeL8lJi
+      X-Gdc-Request-Time:
+      - '25'
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectRole":{"permissions":{"canAccessIntegration":"1","canCreateProjectDashboard":"0","canExportDashboard":"1","canManageComment":"0","canExecute":"1","canInitData":"0","canManageIntegration":"0","canCreateExecutionContext":"1","canManageFolder":"0","canInviteUserToProject":"0","canCreateTableDataLoad":"0","canCreateDomain":"0","canSeeOtherUserDetails":"0","canManageACL":"0","canManageAnalyticalDashboard":"0","canCreateRole":"0","canCreateProjectTemplates":"0","canCreateHelp":"0","canManageDomain":"0","canManageAttributeLabel":"0","canManageReport":"0","canExportReport":"1","canCreateColumn":"0","canManageDataSet":"0","canSetUserVariables":"0","canCreateAttributeGroup":"0","canValidateProject":"0","canSetStyle":"0","canMaintainProject":"0","canCreateETLFile":"0","canCreateScheduledMail":"1","canSuspendUserFromProject":"0","canManageIsProduction":"0","canMaintainUserFilterRelation":"0","canManageAttribute":"0","canManageReportDefinition":"0","canManageTranslations":"0","canMaintainUserFilter":"0","canCreateReport":"0","canSetLocale":"0","canEnrichData":"0","canUploadNonProductionCSV":"0","canManageETLFile":"0","canCreateComment":"0","canCreateDataSet":"0","canManageExecutionContext":"1","canCreateTable":"0","canManageTableDataLoad":"0","canRefreshData":"0","canCreateMetric":"0","canManageFilterSettings":"0","canManageProjectDashboard":"0","canManageProject":"0","canManagePrompt":"0","canAccessWorkbench":"1","canCreateAttributeLabel":"0","canCreateVisualizationClass":"0","canManageColumn":"0","canCreatePrompt":"0","canManagePublicAccessCode":"0","canListUsersInProject":"0","canManageAttributeGroup":"0","canManageMetric":"0","canManageHelp":"0","canSetProjectVariables":"0","canManageTable":"0","canCreateVisualization":"0","canCreateFolder":"0","canManageFact":"0","canManageScheduledMail":"0","canListInvitationsInProject":"0","canCreateFilterSettings":"1","canExecuteRaw":"1","canSeePublicAccessCode":"0","canCreateReportDefinition":"1","canManageVisualization":"0","canCreateFact":"0","canCreateAttribute":"0","canAssignUserWithRole":"0","canCreateAnalyticalDashboard":"0"},"links":{"roleUsers":"/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/4/users"},"meta":{"created":"2018-05-31
+        11:33:12","identifier":"readOnlyUserRole","summary":"read only user role","author":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa","updated":"2018-05-31
+        11:33:12","title":"Viewer","contributor":"/gdc/account/profile/5ad80b895edcc438e5a4418e222733fa"}}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:22 GMT
+- request:
+    method: post
+    uri: https://staging2-lcm-prod.intgdc.com/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/users
+    body:
+      encoding: UTF-8
+      string: '{"user":{"content":{"status":"ENABLED","userRoles":["/gdc/projects/ghw4sq2hu8glp55gyq20q67ixx1wiku1/roles/2"]},"links":{"self":"/gdc/account/profile/gemtest-Adding+user+without+domain+should+fail+if+it+is+not+in+the+domain-0@gooddata.com"}}}'
+    headers:
+      Accept:
+      - application/json, application/zip
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - gooddata-gem/1.0.2/x86_64-darwin16/2.3.4
+      Content-Type:
+      - application/json
+      X-Gdc-Authtt:
+      - "<X_GDC_AUTHTT>"
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:ENJqYosYf9WAVI0luxslOA
+      Content-Length:
+      - '241'
+      Host:
+      - staging2-lcm-prod.intgdc.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Gdc-Log-Header:
+      - ''
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Thu, 31 May 2018 09:33:21 GMT
+      Server:
+      - GoodData WebApp
+      X-Gdc-Request:
+      - u43_9LC4Kaa48UoLg_acpw:ENJqYosYf9WAVI0luxslOA:q2lAzFAgrZ2Ro7ER
+      Vary:
+      - origin
+      X-Gdc-Request-Time:
+      - '58'
+      Transfer-Encoding:
+      - chunked
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"projectUsersUpdateResult":{"successful":[],"failed":[{"user":"/gdc/account/profile/gemtest-Adding+user+without+domain+should+fail+if+it+is+not+in+the+domain-0@gooddata.com","message":"Cannot
+        add user to project. User doesn''t exist"}]}}'
+    http_version: 
+  recorded_at: Thu, 31 May 2018 09:33:22 GMT
+recorded_with: VCR 4.0.0

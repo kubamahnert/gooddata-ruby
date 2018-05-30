@@ -41,7 +41,7 @@ module GoodData
         end
 
         def ensure_users(opts = {})
-          caller = CGI.escape $example_name
+          caller = opts[:caller] ? CGI.escape(opts[:caller]) : rand(1e7)
           amount = opts[:amount] || 1
           usrs = amount.times.map do |i|
             opts[:login] = "gemtest-#{caller}-#{i}@gooddata.com"
