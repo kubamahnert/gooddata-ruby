@@ -165,7 +165,7 @@ module GoodData
                 'metrics' => ReportDefinition.create_metrics_part(left, top),
                 'rows' => ReportDefinition.create_part(left)
               },
-              'format' => 'grid',
+              'format' => options[:format] || 'grid',
               'filters' => ReportDefinition.create_filters_part(filters, :project => project)
             },
             'meta' => {
@@ -175,11 +175,65 @@ module GoodData
             }
           }
         }
+        pars['reportDefinition']['content'].merge! ReportDefinition.create_chart_part(options[:chart_part]) if options[:chart_part]
         # TODO: write test for report definitions with explicit identifiers
         pars['reportDefinition']['meta']['identifier'] = options[:identifier] if options[:identifier]
 
         client.create(ReportDefinition, pars, :project => project)
       end
+
+      def create_chart_part(options = {})
+        if options[:type] == 'donut'
+          {
+            chart: {
+              styles: {
+                global: {
+                  elementMapping: [
+                    {
+                      charttype: 'overbar',
+                    }
+                  ],
+                  colorMapping: []
+                }
+              },
+            buckets: {
+              y: [],
+              color: [],
+              angle: [
+                {
+                  uri: "metric"
+                }
+              ],
+              x: [
+                {
+                  uri: options[:value_uri]
+                }
+              ]
+            },
+            type: "donut"
+          }
+          }
+        elsif options[:type] == 'bar'
+          {
+            chart: {
+              buckets: {
+                y: [
+                  {
+                    uri: 'metric',
+                  }
+                ],
+                color: [],
+                angle: [],
+                x: [
+                  {
+                    uri: options[:value_uri]
+                  }
+                ]
+              },
+              type: 'bar',
+            }
+          }
+        end
     end
 
     def attribute_parts
@@ -268,5 +322,6 @@ module GoodData
     def table?
       content['format'] == 'grid'
     end
+  end
   end
 end
