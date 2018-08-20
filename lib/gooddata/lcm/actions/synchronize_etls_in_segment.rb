@@ -92,11 +92,11 @@ module GoodData
           params_for_all_projects = schedule_params[:all_clients] || {}
           params_for_all_schedules_in_all_projects = params_for_all_projects[:all_schedules]
 
-          params.synchronize.peach do |info|
+          params.synchronize.each do |info|
             from_project_etl_names = get_process_n_schedule_names(client, info.from) if delete_extra_process_schedule
 
             to_projects = info.to
-            to_projects.peach do |entry|
+            to_projects.each do |entry|
               pid = entry[:pid]
               to_project = client.projects(pid) || fail("Invalid 'to' project specified - '#{pid}'")
 

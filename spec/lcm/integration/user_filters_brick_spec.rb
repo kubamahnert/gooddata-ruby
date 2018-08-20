@@ -360,4 +360,6 @@ describe 'UsersFiltersBrick' do
       expect(filters.length).to be 3
     end
   end
+
+  context 'when '
 end

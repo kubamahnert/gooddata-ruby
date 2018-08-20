@@ -2,6 +2,7 @@ require 'active_support/core_ext/hash'
 require 'gooddata/lcm/lcm2'
 
 require_relative 'shared_examples_for_user_actions'
+require_relative '../support/lcm_action_helper'
 
 shared_context 'using mode with custom_id' do
   let(:CSV) { double('CSV') }
@@ -19,12 +20,13 @@ end
 
 describe GoodData::LCM2::SynchronizeUserFilters do
   let(:client) { double('client') }
+  let(:logger) { double(Logger) }
   let(:user) { double('user') }
   let(:data_source) { double('user') }
-  let(:domain) { double('domain') }
   let(:project) { double('project') }
   let(:organization) { double('organization') }
-  let(:logger) { double(Logger) }
+  let(:domain) { double('domain') }
+
 
   before do
     allow(client).to receive(:projects).and_return(project)
@@ -34,7 +36,6 @@ describe GoodData::LCM2::SynchronizeUserFilters do
     allow(project).to receive(:pid).and_return('123456789')
     allow(user).to receive(:login).and_return('my_login')
     allow(GoodData::Helpers::DataSource).to receive(:new).and_return(data_source)
-    allow(logger).to receive(:warn)
   end
 
   context 'when multiple_projects_column not specified' do
@@ -52,14 +53,11 @@ describe GoodData::LCM2::SynchronizeUserFilters do
       let(:mode) { 'sync_multiple_projects_based_on_custom_id' }
       let(:params) do
         params = {
-          GDC_GD_CLIENT: client,
           input_source: 'foo',
           domain: 'bar',
           filters_config: { labels: [] },
           sync_mode: mode,
-          gdc_logger: logger
         }
-        GoodData::LCM2.convert_to_smart_hash(params)
       end
 
       it_behaves_like 'a user action reading client_id' do
@@ -79,7 +77,7 @@ describe GoodData::LCM2::SynchronizeUserFilters do
         end
 
         it 'returns results' do
-          result = subject.class.call(params)
+          result = Support::LCMActionHelper.call(params)
           expect(result).to eq(results: [])
         end
 
@@ -168,6 +166,27 @@ describe GoodData::LCM2::SynchronizeUserFilters do
         expect(logger).to receive(:warn)
         expect { subject.class.call(params) }.to_not raise_error
       end
+    end
+  end
+
+  context 'when a maqlization error occurs' do
+    before do
+      allow(data_source).to receive(:realize).and_return('lool')
+      allow(File).to receive(:open).and_return("client_id\n123456789")
+    end
+
+    let(:params) do
+      params = {
+        input_source: 'foo',
+        domain: 'bar',
+        filters_config: { labels: [] },
+        gdc_gd_client: client,
+        gdc_logger: logger,
+        sync_mode: 'sync_project'
+      }
+    end
+    it 'prints out the reason' do
+      subject.class.call(GoodData::LCM2.convert_to_smart_hash(params))
     end
   end
 

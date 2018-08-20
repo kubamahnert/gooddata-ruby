@@ -30,7 +30,8 @@ describe GoodData::LCM2::SynchronizeETLsInSegment do
 
   before do
     allow(gdc_gd_client).to receive(:domain) { domain }
-    allow(gdc_gd_client).to receive(:projects) { project }
+    allow(gdc_gd_client).to receive(:projects).with('foo').and_return(project)
+    allow(gdc_gd_client).to receive(:projects).with(nil).and_return([project])
     allow(project).to receive(:schedules) { [] }
     allow(data_product).to receive(:segments) { [segment] }
     allow(segment).to receive(:synchronize_processes) { result }
@@ -65,6 +66,28 @@ describe GoodData::LCM2::SynchronizeETLsInSegment do
     end
   end
 
+  context 'when renaming a process on the source' do
+    let(:schedule1) { double(:schedule1) }
+    let(:schedule2) { double(:schedule2) }
+    before do
+      allow(schedule1).to receive(:update_hidden_params)
+      allow(schedule1).to receive(:enable)
+      allow(schedule1).to receive(:save)
+      allow(schedule1).to receive(:name) { 'Schedule1' }
+      allow(schedule2).to receive(:update_hidden_params)
+      allow(schedule2).to receive(:enable)
+      allow(schedule2).to receive(:save)
+      allow(schedule2).to receive(:name) { 'Schedule2' }
+    end
+
+    it 'does not delete the extra process schedules unless set' do
+      expect(schedule1).not_to receive(:delete)
+      expect(schedule2).not_to receive(:delete)
+
+      subject.class.call(params)
+    end
+  end
+
   context 'when user passes dynamic schedule parameters' do
     let(:project) { double(:project) }
     let(:schedule1) { double(:schedule1) }
@@ -91,7 +114,6 @@ describe GoodData::LCM2::SynchronizeETLsInSegment do
       allow(schedule2).to receive(:save)
       allow(schedule2).to receive(:name) { 'Schedule2' }
       allow(project).to receive(:schedules) { [schedule1, schedule2] }
-      allow(gdc_gd_client).to receive(:projects) { project }
     end
 
     context 'to each schedules' do
