@@ -102,8 +102,9 @@ module GoodData
       ## Bricks
 
       release: [
-        EnsureReleaseTable,
+        # EnsureReleaseTable,
         CollectDataProduct,
+        CollectSegments,
         SegmentsFilter,
         CreateSegmentMasters,
         EnsureTechnicalUsersDomain,
@@ -120,7 +121,7 @@ module GoodData
         SynchronizeColorPalette,
         SynchronizeUserGroups,
         SynchronizeNewSegments,
-        UpdateReleaseTable
+        # UpdateReleaseTable
       ],
 
       provision: [

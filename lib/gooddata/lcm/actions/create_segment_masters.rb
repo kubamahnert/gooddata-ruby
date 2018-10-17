@@ -51,7 +51,7 @@ module GoodData
           results = []
 
           client = params.gdc_gd_client
-          development_client = params.development_client
+          development_client = client
 
           domain_name = params.organization || params.domain
           fail "Either organisation or domain has to be specified in params" unless domain_name
@@ -81,6 +81,7 @@ module GoodData
               ds.segment_id == segment_id
             end
 
+            master_name = client.projects(development_pid).title
             # Create new master project
             params.gdc_logger.info "Creating master project - name: '#{master_name}' development_project: '#{development_pid}', segment: '#{segment_id}', driver: '#{driver}'"
             project = client.create_project(title: master_name, auth_token: token, driver: driver == 'vertica' ? 'vertica' : 'Pg', environment: params.project_environment)
@@ -148,6 +149,7 @@ module GoodData
         end
 
         def get_project_version(params, segment_id)
+          return 0
           current_master = GoodData::LCM2::Helpers.latest_master_project(
             params.release_table_name,
             params.ads_client,

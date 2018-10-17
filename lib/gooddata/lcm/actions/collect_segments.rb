@@ -21,6 +21,9 @@ module GoodData
 
         description 'Logger'
         param :gdc_logger, instance_of(Type::GdLogger), required: true
+
+        description 'source project pid'
+        param :src_pid, instance_of(Type::StringType), required: false
       end
 
       RESULT_HEADER = [
@@ -60,7 +63,7 @@ module GoodData
             {
               segment_id: segment.segment_id,
               segment: segment,
-              development_pid: project.pid,
+              development_pid: params.src_pid,
               driver: project.driver.downcase,
               master_name: project.title,
               segment_master: project,
