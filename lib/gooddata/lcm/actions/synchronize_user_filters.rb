@@ -197,9 +197,9 @@ module GoodData
           end
         end
 
-        def sync_user_filters(project, filters, params, filters_config)
+        def sync_user_filters(project, filters, params)
           # Do not change this line -> can cause paralelisation errors in jRuby viz TMA-963
-          project.add_data_permissions(GoodData::UserFilterBuilder.get_filters(filters, filters_config), params)
+          project.add_data_permissions(filters, params)
         end
 
         def load_data(params, symbolized_config)

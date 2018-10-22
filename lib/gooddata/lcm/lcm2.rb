@@ -168,6 +168,16 @@ module GoodData
         SynchronizeUserFilters
       ],
 
+      user_provisioning: [
+        CollectDataProduct,
+        CollectSegments,
+        CollectMultipleProjectsColumn,
+        CollectUsers,
+        CollectUserFilters,
+        CollectUnmentionedClients,
+        ProvisionUsers
+      ],
+
       schedules_execution: [
         ExecuteSchedules
       ],

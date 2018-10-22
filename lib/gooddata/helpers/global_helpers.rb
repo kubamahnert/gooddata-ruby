@@ -183,6 +183,11 @@ module GoodData
         end
       end
 
+      def symbolize_keys_recursively(object)
+        dup = deep_dup(object)
+        dup.symbolize_keys_recursively!
+      end
+
       def undot(params)
         # for each key-value config given
         params.map do |k, v|
