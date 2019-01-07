@@ -32,7 +32,7 @@ jobs:
     - jruby-1.7.19
     - jruby-9.1.5
     - jruby-9.1.7
-    - jruby-9.1.14
+    - jruby-9.1.15
 
   - name: sdk integration (vcr) tests - base
     stage: before-merge
@@ -66,7 +66,7 @@ jobs:
     env:
     - VCR_ON=false
     - GD_ENV=staging
-    rvm: jruby-9.1.14
+    rvm: jruby-9.1.15
 
   - &lcm-slow-tests
     name: staging1 - lcm slow tests
@@ -78,7 +78,7 @@ jobs:
     env:
     - VCR_ON=false
     - GD_ENV=staging
-    rvm: jruby-9.1.14
+    rvm: jruby-9.1.15
 
   - &userprov-tests
     name: staging1 - user provisioning tests
@@ -90,7 +90,7 @@ jobs:
     env:
     - VCR_ON=false
     - GD_ENV=staging
-    rvm: jruby-9.1.14
+    rvm: jruby-9.1.15
 
   - &sdk-integration-tests
     name: staging1 - sdk integration tests - base
@@ -99,7 +99,7 @@ jobs:
     env:
     - VCR_ON=false
     - GD_ENV=staging
-    rvm: jruby-9.1.14
+    rvm: jruby-9.1.15
 
   - &sdk-integration-tests-project
     name: staging1 - sdk integration tests - project
@@ -108,7 +108,7 @@ jobs:
     env:
     - VCR_ON=false
     - GD_ENV=staging
-    rvm: jruby-9.1.14
+    rvm: jruby-9.1.15
 
   # staging 2
   - <<: *lcm-integration-tests
